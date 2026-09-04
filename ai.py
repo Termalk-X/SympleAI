@@ -1,13 +1,9 @@
 import requests
-
 API_KEY = "API_KEY"
-
 while True:
     prompt = input("Kamu: ")
-
     if prompt.lower() == "exit":
         break
-
     response = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
         headers={
@@ -24,7 +20,5 @@ while True:
             ]
         }
     )
-
     data = response.json()
-
     print("AI:", data["choices"][0]["message"]["content"])
